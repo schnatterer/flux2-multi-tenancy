@@ -11,7 +11,7 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-  url: ssh://git@github.com/schnatterer/flux2-multi-tenancy
+  url: https://gitlab.com/gitops-book/flux2-multi-tenancy.git
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
