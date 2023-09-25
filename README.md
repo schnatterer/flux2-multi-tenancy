@@ -186,7 +186,7 @@ cd ./tenants/base/dev-team/ && kustomize create --autodetect
 Create the staging overlay and set the path to the staging dir inside the tenant repository:
 
 ```sh
-cat << EOF | tee ./tenants/staging/dev-team-patch.yaml
+cat << EOF | tee ./tenants/staging/dev-team/team-patch.yaml
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
@@ -196,15 +196,17 @@ spec:
   path: ./staging
 EOF
 
-cat << EOF | tee ./tenants/staging/kustomization.yaml
+cat << EOF | tee ./tenants/staging/dev-team/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../base/dev-team
+  - ../../base/dev-team
 patches:
   - path: dev-team-patch.yaml
 EOF
 ```
+
+Then add `dev-team/` to `resource`s in `tenants/staging/kustomization.yaml`. 
 
 With the above configuration, the Flux instance running on the staging cluster will clone the
 dev-team's repository, and it will reconcile the `./staging` directory from the tenant's repo
