@@ -4,6 +4,15 @@
 [![e2e](https://github.com/fluxcd/flux2-multi-tenancy/workflows/e2e/badge.svg)](https://github.com/fluxcd/flux2-multi-tenancy/actions)
 [![license](https://img.shields.io/github/license/fluxcd/flux2-multi-tenancy.svg)](https://github.com/fluxcd/flux2-multi-tenancy/blob/main/LICENSE)
 
+This fork of [fluxcd/flux2-multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) extends the basic example shown there by a solution to manage
+* multiple tenants (see [tenants/staging](tenants/staging)) and
+* multiple applications (see [example tenant `team2` on branch](https://github.com/schnatterer/flux2-multi-tenancy/tree/team2)).
+
+This provides some soultions to the discussions in [fluxcd/flux2-multi-tenancy#89](https://github.com/fluxcd/flux2-multi-tenancy/issues/89).
+The solution for multiple apps is reflected from [fluxcd/flux2-kustomize-helm-example#16](https://github.com/fluxcd/flux2-kustomize-helm-example/issues/16), see also the repo [schnatterer/flux2-kustomize-helm-example](https://github.com/schnatterer/flux2-kustomize-helm-example).  
+
+You can also find examples for the manifests created by `flux bootstrap`here, see [clusters/staging/flux-system](clusters/staging/flux-system).
+
 This repository serves as a starting point for managing multi-tenant clusters with Git and Flux v2.
 
 ![](docs/img/flux2-multi-tenancy.png)
